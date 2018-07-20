@@ -120,7 +120,7 @@ public class PlayerServiceImpl implements IPlayerService {
 		return players;
 	}
 
-	public  Player findById(int id) {
+	public Player findById(int id) {
 
 		Player pl = null;
 		Connection con = null;
@@ -169,6 +169,31 @@ public class PlayerServiceImpl implements IPlayerService {
 
 	public void deleteAll() {
 		// TODO Auto-generated method stub
+		Connection con = null;
+
+		try {
+			con = ConnectionUtils.getConnection();
+			repository.deleteAll(con);
+			con.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		} finally {
+
+			try {
+				ConnectionUtils.closeConnection(con);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 	}
 
