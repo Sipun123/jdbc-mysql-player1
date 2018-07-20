@@ -72,9 +72,11 @@ public class PlayerRepositoryImpl implements IPlayerRepository {
 		
 	}
 
-	public void deleteById(int id, Connection con) {
-		// TODO Auto-generated method stub
-
+	public void deleteById(int id, Connection con) throws SQLException {
+		PreparedStatement ps= con.prepareStatement(PlayerQueries.DELETE_BY_ID);
+	ps.setInt(1, id);
+	ps.executeUpdate();
+	
 	}
 
 	public void deleteAll(Connection con) {
