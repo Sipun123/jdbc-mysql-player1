@@ -13,5 +13,5 @@ public interface IPlayerRepository {
 	public List<Player> findAll(Connection con) throws SQLException;
 	public Player findById(int id,Connection con) throws SQLException;
 	public void deleteById(int id,Connection con) throws SQLException;
-	public void deleteAll(Connection con);
+	public void deleteAll(Connection con) throws SQLException; 
 }

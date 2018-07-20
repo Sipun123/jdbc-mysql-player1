@@ -57,6 +57,7 @@ public class App
     	
     	//DELETE_BY_ID
     	service.deleteById(2);
-    	
+    	// DELETE ALL
+    	service.deleteAll();
 }}
 

@@ -79,9 +79,15 @@ public class PlayerRepositoryImpl implements IPlayerRepository {
 	
 	}
 
-	public void deleteAll(Connection con) {
-		// TODO Auto-generated method stub
-
+	
+		public void deleteAll(Connection con) throws SQLException {
+	 		// TODO Auto-generated method stub
+	
+		PreparedStatement ps=con.prepareStatement(PlayerQueries.DELETE_ALL);
+			
+			
+			
+			ps.executeUpdate();
 	}
 
 	public void updateNameAndRANK(String name, int rank, int id, Connection con) throws SQLException {

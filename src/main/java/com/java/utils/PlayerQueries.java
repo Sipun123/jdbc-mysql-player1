@@ -9,4 +9,5 @@ public class PlayerQueries {
 	public static final String UPDATE_COUNTRY = "UPDATE TBL_PLAYER SET COUNTRY=? WHERE ID=?";
 	public static final String UPDATE_NAME_RANK = "UPDATE TBL_PLAYER SET NAME=?,RANK=? WHERE ID=?";
 	public static final String DELETE_BY_ID = "DELETE FROM TBL_PLAYER WHERE ID=?";
+	public static final String DELETE_ALL ="DELETE FROM TBL_PLAYER";
 }
