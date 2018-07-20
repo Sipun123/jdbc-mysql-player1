@@ -12,6 +12,6 @@ public interface IPlayerRepository {
 	public void updateCountry(String country,int id,Connection con) throws SQLException;
 	public List<Player> findAll(Connection con) throws SQLException;
 	public Player findById(int id,Connection con) throws SQLException;
-	public void deleteById(int id,Connection con);
+	public void deleteById(int id,Connection con) throws SQLException;
 	public void deleteAll(Connection con);
 }

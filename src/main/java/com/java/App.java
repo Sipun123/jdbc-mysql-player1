@@ -55,5 +55,8 @@ public class App
     	// UPDATE NAME AND RANK
     	service.updateNameAndRank("SUVA", 507, 2);
     	
+    	//DELETE_BY_ID
+    	service.deleteById(2);
+    	
 }}
 

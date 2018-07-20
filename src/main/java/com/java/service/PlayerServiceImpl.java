@@ -59,8 +59,7 @@ public class PlayerServiceImpl implements IPlayerService {
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 
 			try {
 				ConnectionUtils.closeConnection(con);
@@ -69,7 +68,7 @@ public class PlayerServiceImpl implements IPlayerService {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 
 	public void updateCountry(String country, int id) {
@@ -121,7 +120,7 @@ public class PlayerServiceImpl implements IPlayerService {
 		return players;
 	}
 
-	public Player findById(int id) {
+	public  Player findById(int id) {
 
 		Player pl = null;
 		Connection con = null;
@@ -144,8 +143,28 @@ public class PlayerServiceImpl implements IPlayerService {
 	}
 
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		try {
+			con = ConnectionUtils.getConnection();
+			repository.deleteById(id, con);
+			con.commit();
+		} catch (SQLException e) {
 
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		} finally {
+			try {
+
+				ConnectionUtils.closeConnection(con);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void deleteAll() {
